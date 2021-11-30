@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  >
+  <!-- View that edits existing Person -->
+
+  <h:head>
+    <!-- title of tab/window in browser -->
+    <title>#{uiconsts['updateLabel']}</title>
+  </h:head>
+  <h:body>
+    <h2>#{uiconsts['updateLabel']}</h2>
+    <br />
+    <p>update a person here. you can use "h:panelGrid", "h:outputText", "h:inputText", "h:commandButton", and "h:form"</p>
+    <h:form>
+       <!-- JavaScript onclick-handler cannot use 'map-style' uiconsts['something'], use 'properties-style'  -->
+       <h:panelGrid>
+        <h:outputText value="FirstName"/>
+        <h:inputText value="#{editPerson.firstName}"/>
+     		
+         	<h:outputText value="LastName"/>
+         	<h:inputText value="#{editPerson.lastName}"/>
+     		
+       	 	<h:outputText value="Email"/>
+         	<h:inputText value="#{editPerson.email}"/>
+   			
+          	<h:outputText value="Phone Number"/>
+      	 	<h:inputText value="#{editPerson.phoneNumber}"/>
+      </h:panelGrid>
+      <h:commandButton value="Return" action="list-people?faces-redirect=true"/>
+      <h:commandButton value="Update" action="#{personController.submitUpdatedPerson(editPerson)}" />
+    </h:form>
+  </h:body>
+</html>
