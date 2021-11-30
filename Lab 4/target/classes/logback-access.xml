@@ -1,0 +1,11 @@
+<configuration>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder>
+        <pattern>%date{"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",UTC} %blue(HTTP)  [%-20.20h] %cyan(%m %U) - Status=%s, elapsed=%D ms</pattern>
+      </encoder>
+    </appender>
+
+    <appender-ref ref="CONSOLE" />
+</configuration>
